@@ -27,7 +27,7 @@ public class ArrayGL<E> implements MyList<E> {
     public void transformAll(MyTransformer mt){
         for(int i = 0; i < this.size; i++){
             if(this.elements[i] != null){
-                this.elements[i] = mt.transformElement((E) this.elements[i]);
+                this.elements[i] = mt.transformElement( this.elements[i]);
             }
         }
     }

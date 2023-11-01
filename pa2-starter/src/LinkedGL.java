@@ -87,7 +87,7 @@ public class LinkedGL<E> implements MyList<E> {
         for(int i = 0; i < this.size; i++){
             val = oriCurNode.next.value;
             if( val != null){
-                oriCurNode.next.value = mt.transformElement((E) val);
+                oriCurNode.next.value = mt.transformElement(val);
             }
             oriCurNode = oriCurNode.next;
         }
@@ -95,12 +95,11 @@ public class LinkedGL<E> implements MyList<E> {
 
     public void chooseAll(MyChooser mc){
         Node curNode = this.front;
-        boolean bq;
         E val;
 
         for(int i = 0; i < this.size; i++){
             val = curNode.next.value;
-            if(val == null || ! mc.chooseElement((E) val)){
+            if(val == null || ! mc.chooseElement((E) val)){ //if next.value is  null or the value is not chosen then
                 //remove curNode.next node and reconnect the next next one to curNode
                 curNode.next = curNode.next.next;
                 this.size --;
